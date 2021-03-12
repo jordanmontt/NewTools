@@ -6,7 +6,7 @@ Class {
 
 { #category : #accessing }
 FDOpenFileDialogTest >> dialogClass [
-	^ FDOpenFileDialog
+	^ FDOpenFileDialogPresenter
 ]
 
 { #category : #tests }

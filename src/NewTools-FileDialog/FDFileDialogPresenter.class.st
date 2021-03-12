@@ -115,17 +115,16 @@ FDFileDialogPresenter class >> defaultSpec [
 FDFileDialogPresenter class >> exampleBookmark [
 	<example>
 	| presenter |
-	presenter := FDOpenFileDialog new.
+	presenter := FDOpenFileDialogPresenter new.
 	"this is a flat example"
 	presenter
 		bookmarks:
 			{FDBookmark home.
 			FDBookmark root.
-			FDBookmark tmp.
 			(FDBookmark
 				name: 'Image location'
 				location: FileLocator imageDirectory
-				icon: nil)}
+				icon: nil)}.
 			"this is tree example" 	
 			"{(FDGroupBookMark
 				CreatWithname: 'exampleGroup'
@@ -133,12 +132,13 @@ FDFileDialogPresenter class >> exampleBookmark [
 					{FDBookmark image.
 					FDBookmark home}
 				withIconName: 'group')}"
+	presenter openWithSpec.
 ]
 
 { #category : #example }
 FDFileDialogPresenter class >> examplePreviewer [
 	| presenter |
-	presenter := FDOpenFileDialog new.
+	presenter := FDOpenFileDialogPresenter new.
 	presenter previewer: FDInspectPreviewer new.
 	presenter openDialogWithSpec.
 	^ presenter
@@ -147,19 +147,19 @@ FDFileDialogPresenter class >> examplePreviewer [
 { #category : #example }
 FDFileDialogPresenter class >> exampleSaveDialog [
 	<example>
-		^ FDSaveFileDialog new openDialogWithSpec 
+		^ FDSaveFileDialogPresenter new openDialogWithSpec 
 ]
 
 { #category : #example }
 FDFileDialogPresenter class >> exampleSaveFileDialog [
-	^ FDSaveFileDialog new openDialogWithSpec
+	^ FDSaveFileDialogPresenter new openDialogWithSpec
 ]
 
 { #category : #example }
 FDFileDialogPresenter class >> fullExample [
 	<example>
 	| presenter |
-	presenter := FDOpenFileDialog new.
+	presenter := FDOpenFileDialogPresenter new.
 	
 	presenter previewer: FDContentPreviewer new.	
 	"with this when you select a png file it will display it"

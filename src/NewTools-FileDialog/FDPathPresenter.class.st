@@ -20,8 +20,8 @@ Internal Representation and Key Implementation Points.
 Class {
 	#name : #FDPathPresenter,
 	#superclass : #SpPresenter,
-	#traits : 'TSpDynamicPresenter',
-	#classTraits : 'TSpDynamicPresenter classTrait',
+	#traits : 'SpTDynamicPresenter',
+	#classTraits : 'SpTDynamicPresenter classTrait',
 	#instVars : [
 		'action',
 		'count'
@@ -69,7 +69,7 @@ FDPathPresenter >> file: aFile [
 { #category : #accessing }
 FDPathPresenter >> layout [
 	| l |
-	l := SpBoxLayout newHorizontal.
+	l := SpBoxLayout newLeftToRight.
 	self presentersDo: [ :p | l add: p expand: false fill: false padding: 0 ].
 	^ l
 ]

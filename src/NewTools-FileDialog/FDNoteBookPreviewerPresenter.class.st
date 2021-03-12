@@ -17,7 +17,7 @@ Class {
 { #category : #specs }
 FDNoteBookPreviewerPresenter class >> defaultSpec [
 
-	^ SpBoxLayout newHorizontal	 
+	^ SpBoxLayout newLeftToRight	 
 		add: #notebook;
 		yourself
 ]
@@ -129,7 +129,7 @@ FDNoteBookPreviewerPresenter >> page: aPresenter [
 	page := aPresenter.
 	notebook removePageAt: 1.
 	notebook addPage: self initializePage;
-	selectedPageIndex: 1.
+	selectPageIndex: 1.
 ]
 
 { #category : #initialization }

@@ -31,7 +31,7 @@ Class {
 
 { #category : #specs }
 FDWindowPathPresenter class >> defaultSpec [
-	^ SpBoxLayout newHorizontal
+	^ SpBoxLayout newLeftToRight
 		add: #path;
 		add: #editButton expand: false fill: false padding: 0;
 		yourself
@@ -48,7 +48,7 @@ FDWindowPathPresenter class >> example [
 { #category : #specs }
 FDWindowPathPresenter class >> otherlayout [
 	^ SpBoxLayout newHorizontal
-		add: #textInput withConstraints: [ :contraint | contraint spec: #fDLayoutFileDialog ];
+		add: #textInput withConstraints: [ :contraint | contraint spec: #FDLayoutFileDialog ];
 		add: #editButton
 			expand: false
 			fill: false
@@ -87,13 +87,14 @@ FDWindowPathPresenter >> initializePresenters [
 	path action: [ :fileReference | self owner openFolder: fileReference ].
 
 	textInput
-		autoAccept: false;
 		placeholder: 'path/to/file'.
 
 	editButton
 		icon: (self iconNamed: #edit);
 		action: [ self needRebuild: false.
-			self buildWithSpecLayout: (isTextInput ifTrue: [ self class defaultSpec ] ifFalse: [ self class otherlayout ]).
+			self buildWithSpecLayout: (isTextInput 
+				ifTrue: [ self class defaultSpec ] 
+				ifFalse: [ self class otherlayout ]).
 			isTextInput := isTextInput not ]
 ]
 

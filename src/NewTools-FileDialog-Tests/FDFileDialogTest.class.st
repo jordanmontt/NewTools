@@ -81,7 +81,7 @@ FDFileDialogTest >> testWhenAddACollectionOfBookmarkToCustomBookmarkShouldBeAdde
 { #category : #tests }
 FDFileDialogTest >> testWhenAddingBookmarkOnDefaultBookmarksShouldBeAddToAllInstance [
 	| anOtherInstance addCommand |
-	anOtherInstance := FDOpenDirectoryDialog new.
+	anOtherInstance := FDOpenDirectoryDialogPresenter new.
 	self
 		assertCollection: anOtherInstance bookmarks
 		hasSameElements: dialog bookmarks.
@@ -107,7 +107,7 @@ FDFileDialogTest >> testWhenAddingBookmarkOnIsolateBookmarksShouldBeAddToAllInst
 	dialog fileReferenceTable
 		selectIndex: ((dialog fileReferenceTable items collect: #basename) indexOf: 'dir'). 
 	addCommand execute.
-	anOtherInstance := FDOpenDirectoryDialog new.
+	anOtherInstance := FDOpenDirectoryDialogPresenter new.
 	self flag: #issue4162.
 	self deny: anOtherInstance bookmarks equals: dialog bookmarks.
 	self

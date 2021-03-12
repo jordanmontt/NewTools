@@ -2,7 +2,7 @@
 My responsibility is to provide dialog for SAVING files.
 "
 Class {
-	#name : #FDSaveFileDialog,
+	#name : #FDSaveFileDialogPresenter,
 	#superclass : #FDFileDialogPresenter,
 	#instVars : [
 		'extensionMather'
@@ -14,19 +14,19 @@ Class {
 }
 
 { #category : #examples }
-FDSaveFileDialog class >> example [ 	
+FDSaveFileDialogPresenter class >> example [ 	
 	<example>
 		^ self new openDialogWithSpec
 ]
 
-{ #category : #'as yet unclassified' }
-FDSaveFileDialog class >> exampleExtension [
+{ #category : #examples }
+FDSaveFileDialogPresenter class >> exampleExtension [
 	<example>
 	^ self extension: '*.jpg'
 ]
 
 { #category : #accessing }
-FDSaveFileDialog class >> extension: aExtensionMatcher [
+FDSaveFileDialogPresenter class >> extension: aExtensionMatcher [
 	"example 
 		you want to save png File 
 			FDSaveFileDialog extension: 'jpg'
@@ -39,12 +39,12 @@ FDSaveFileDialog class >> extension: aExtensionMatcher [
 ]
 
 { #category : #'class initialization' }
-FDSaveFileDialog class >> initialize [ 
+FDSaveFileDialogPresenter class >> initialize [ 
 	Matcher := '*'
 ]
 
 { #category : #initialization }
-FDSaveFileDialog >> connectPresenters [
+FDSaveFileDialogPresenter >> connectPresenters [
 	| ec |
 	super connectPresenters.
 	(ec := EntryCompletion new)
@@ -54,23 +54,23 @@ FDSaveFileDialog >> connectPresenters [
 ]
 
 { #category : #'api-customization' }
-FDSaveFileDialog >> extension: anExtensionMatcher [
+FDSaveFileDialogPresenter >> extension: anExtensionMatcher [
 	extensionMather := anExtensionMatcher
 ]
 
 { #category : #api }
-FDSaveFileDialog >> initialTitle [
+FDSaveFileDialogPresenter >> initialTitle [
 	^ 'Save As'
 ]
 
 { #category : #initialization }
-FDSaveFileDialog >> initialize [
+FDSaveFileDialogPresenter >> initialize [
 	super initialize.
 	extensionMather := Matcher
 ]
 
 { #category : #accessing }
-FDSaveFileDialog >> selectedEntry [
+FDSaveFileDialogPresenter >> selectedEntry [
 	| entry proceed |
 	entry := fileNavigationSystem currentDirectory /fileNavigationSystem nameText text.
 	(fileNavigationSystem nameText text includes: extensionMather)

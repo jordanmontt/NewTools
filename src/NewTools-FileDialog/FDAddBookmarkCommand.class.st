@@ -24,7 +24,6 @@ FDAddBookmarkCommand >> execute [
 	| fileReference |
 	fileReference := self context selectedEntry.
 	self context owner bookmarks add: (FDBookmark name: fileReference basename location: fileReference icon: nil).
-	self flag: #todo.	"We can do better here."
 	self context owner bookmarksTreeTable roots: self context owner bookmarks
 ]
 

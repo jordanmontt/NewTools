@@ -7,23 +7,23 @@ examples see class side method example
 
 "
 Class {
-	#name : #FDOpenFileDialog,
+	#name : #FDOpenFileDialogPresenter,
 	#superclass : #FDFileDialogPresenter,
 	#category : #'NewTools-FileDialog-UI'
 }
 
 { #category : #api }
-FDOpenFileDialog >> initialTitle [
+FDOpenFileDialogPresenter >> initialTitle [
 	^ 'Select File To Open'
 ]
 
 { #category : #initialization }
-FDOpenFileDialog >> initializePresenters [
+FDOpenFileDialogPresenter >> initializePresenters [
 	super initializePresenters.
 	fileNavigationSystem nameText disable
 ]
 
 { #category : #accessing }
-FDOpenFileDialog >> selectedEntry [
+FDOpenFileDialogPresenter >> selectedEntry [
 	^ fileNavigationSystem selectedEntry
 ]

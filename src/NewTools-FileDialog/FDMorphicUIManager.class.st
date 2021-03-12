@@ -26,7 +26,7 @@ FDMorphicUIManager class >> isActiveManager [
 FDMorphicUIManager >> chooseDirectory: label from: dir [
 	self flag: #ToDoWhenIntegration.
 	self flag: 'use chooseDirectory:path: instead of this'.
-	^ FDOpenDirectoryDialog new
+	^ FDOpenDirectoryDialogPresenter new
 		defaultFolder: dir;
 		title: (label ifNil: [ 'Choose Directory' translated ]);
 		openDialogWithSpec
@@ -34,7 +34,7 @@ FDMorphicUIManager >> chooseDirectory: label from: dir [
 
 { #category : #'ui requests' }
 FDMorphicUIManager >> chooseDirectory: label path: path [
-	^ FDOpenDirectoryDialog new
+	^ FDOpenDirectoryDialogPresenter new
 		defaultFolder: path;
 		title: (label ifNil: [ 'Choose Directory' translated ]);
 		openDialogWithSpec
@@ -43,7 +43,7 @@ FDMorphicUIManager >> chooseDirectory: label path: path [
 { #category : #'ui requests' }
 FDMorphicUIManager >> chooseFileMatching: patterns label: label [
 	self deprecated: 'now you have to give a filter see FileDialog-filterStrategie'.
-	^ FDOpenFileDialog new
+	^ FDOpenFileDialogPresenter new
 		title: (label ifNil: [ 'Choose File' translated ]);
 		"fileFilters: pattern  ;"
 		openWithSpec
@@ -53,7 +53,7 @@ FDMorphicUIManager >> chooseFileMatching: patterns label: label [
 FDMorphicUIManager >> chooseFileName: title extensions: exts path: path preview: preview [
 	self
 		deprecated: 'now you have to give a filter see FileDialog-filterStrategie'.
-	^ (FDOpenFileDialog new
+	^ (FDOpenFileDialogPresenter new
 		title: (title ifNil: [ 'Choose File' translated ]);
 		"fileFilters: (exts ifNil: [ #() ] ifNotNil: [ :e | e collect: [ :each | '*.' , each ] ]);"
 			defaultFolder: path;
@@ -65,7 +65,7 @@ FDMorphicUIManager >> chooseFileName: title extensions: exts path: path preview:
 FDMorphicUIManager >> chooseFullFileName: title extensions: exts path: path preview: preview [
 	self
 		deprecated: 'now you have to give a filter see FileDialog-filterStrategie'.
-	^ (FDOpenFileDialog new
+	^ (FDOpenFileDialogPresenter new
 		title: (title ifNil: [ 'Choose File' translated ]);
 		"fileFilters: (exts ifNil: [ #() ] ifNotNil: [ :e | e collect: [ :each | '*.' , each ] ]);"
 			defaultFolder: path;
@@ -77,7 +77,7 @@ FDMorphicUIManager >> chooseFullFileName: title extensions: exts path: path prev
 FDMorphicUIManager >> chooseFullFileNameMatching: patterns label: title [
 	self
 		deprecated: 'now you have to give a filter see FileDialog-filterStrategie'.
-	^ FDOpenFileDialog new
+	^ FDOpenFileDialogPresenter new
 		title: (title ifNil: [ 'Choose File' translated ]);
 		"fileFilters: (patterns ifNil: [ #() ] ifNotNil: [ :e | e collect: [ :each | '*.' , each ] ]);
 		"
@@ -88,7 +88,7 @@ FDMorphicUIManager >> chooseFullFileNameMatching: patterns label: title [
 FDMorphicUIManager >> fileOpen: title extensions: exts path: path preview: preview [
 	self
 		deprecated: 'now you have to give a filter see FileDialog-filterStrategie'.
-	^ (FDOpenFileDialog new
+	^ (FDOpenFileDialogPresenter new
 		title: (title ifNil: [ 'Choose File' translated ]);
 		"fileFilters: (exts ifNil: [ #() ] ifNotNil: [ :e | e collect: [ :each | '*.' , each ] ]);
 		"defaultFolder: path;
@@ -100,7 +100,7 @@ FDMorphicUIManager >> fileOpen: title extensions: exts path: path preview: previ
 FDMorphicUIManager >> fileSave: title extensions: exts path: path [
 	self
 		deprecated: 'now you have to give a filter see FileDialog-filterStrategie'.
-	^ FDSaveFileDialog new
+	^ FDSaveFileDialogPresenter new
 		title: (title ifNil: [ 'Choose File' translated ]);
 		"fileFilters: (exts ifNil: [ #() ] ifNotNil: [ :e | e collect: [ :each | '*.' , each ] ]);
 		"

@@ -20,10 +20,12 @@ FDRemoveBookmarkCommand >> asSpecCommand [
 FDRemoveBookmarkCommand >> execute [
 	| collection tmpBookmark collectionSize |
 	collection := self context bookmarksTreeTable selection selectedPath.
-	collectionSize := collection size."teta(N)"
+	collectionSize := collection size.
 	tmpBookmark := self context bookmarks.
- 	[collectionSize = 1  ] whileFalse: [ tmpBookmark := tmpBookmark at: (collection at: 1).collectionSize := collectionSize  -1  ].
-	tmpBookmark removeAt: (collection at:  1).
+ 	[ collectionSize = 1 ] whileFalse: [ 
+		tmpBookmark := tmpBookmark at: (collection at: 1).
+		collectionSize := collectionSize -1 ].
+	tmpBookmark removeAt: (collection at: 1).
 	self context bookmarksTreeTable roots: self context bookmarks 
 ]
 
