@@ -17,6 +17,6 @@ StProjectLoaderMicrodownRenderer class >> priority [
 { #category : #'ui - operations' }
 StProjectLoaderMicrodownRenderer >> render: description [
 
-	^ [ PRRichTextComposer microdownAsRichText: description ] 
-		onErrorDo: [ description ]
+	^ [ MicRichTextComposer microdownAsRichText: description ] 
+		onErrorDo: [ :e | description ]
 ]

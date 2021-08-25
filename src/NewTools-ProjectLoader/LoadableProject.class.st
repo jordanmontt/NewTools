@@ -26,9 +26,25 @@ LoadableProject class >> allProjects [
 				name: 'Microdown';
 				baselineName: 'Microdown';
 				repository: 'pillar-markup/Microdown';
-				version: 'v1.0.4';
+				version: 'dev';
 				group: #default;
 				yourself. 
+			self new 
+				name: 'Beautiful Comments';
+				baselineName: 'BeautifulComments';				
+				repository: 'pillar-markup/BeautifulComments';
+				version: 'master';
+				summary: 'A nice extension of Pharo to support class comments in Microdown and nice rendering.';
+				group: #default;
+				yourself.
+			self new 
+				name: 'Serial Port Support';
+				baselineName: 'SerialPort';				
+				repository: 'tesonep/SerialPort';
+				version: 'main';
+				summary: 'An UFFI implementation of the SerialPort connection';
+				group: #default;
+				yourself.
 			self new 
 				name: 'Roassal3.0';
 				baselineName: 'Roassal3';				
